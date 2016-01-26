@@ -19,8 +19,9 @@ public class Heater {
         this.id = id;
     }
     
-	public Heater(double ac){
+	public Heater(double ac, Home h){
 		this.averageConsumption = ac;
+		this.home = h;
 	}
 
 	public double getAverageConsumption() {

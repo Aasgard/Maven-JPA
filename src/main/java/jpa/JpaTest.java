@@ -10,6 +10,8 @@ import javax.persistence.Persistence;
 
 import domain.Home;
 import domain.Person;
+import service.EntityManagerHelper;
+import service.PersonService;
 
 public class JpaTest {
 
@@ -23,9 +25,12 @@ public class JpaTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("dev"); /* Replace "dev" by "mysql" */
-		EntityManager manager = factory.createEntityManager();
+		//EntityManagerFactory factory = Persistence.createEntityManagerFactory("mysql"); /* Replace "dev" by "mysql" */
+		EntityManager manager = EntityManagerHelper.getEntityManager();
 		EntityTransaction tx = manager.getTransaction();
+		
+		//PersonService ps = new PersonService(manager);
+		
 		JpaTest test = new JpaTest(manager);
 		tx.begin();
 		try {
@@ -48,8 +53,10 @@ public class JpaTest {
 		
 		test.listEmployees();
 		
+	//	System.out.println(ps.getPersons());
+		
 		manager.close();
-		factory.close();
+		//factory.close();
 	}
 	
 	private void createPersons() {

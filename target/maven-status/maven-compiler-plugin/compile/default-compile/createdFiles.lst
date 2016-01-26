@@ -1,5 +1,5 @@
 jpa\JpaTest.class
-domain\Person.class
 domain\Home.class
 domain\ElectronicDevice.class
+domain\Person.class
 domain\Heater.class

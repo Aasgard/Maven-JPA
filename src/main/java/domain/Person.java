@@ -46,7 +46,11 @@ public class Person {
         this.name = name;
     }
     
-    @OneToMany
+    @OneToMany( cascade = CascadeType.PERSIST)
+    @JoinTable(joinColumns={@JoinColumn(name="personId")},
+    inverseJoinColumns={@JoinColumn(name="friendId")}
+    
+    		)
     public List<Person> getFriendList() {
 		return friendList;
 	}
@@ -60,7 +64,6 @@ public class Person {
 		return homesList;
 	}
 	
-	@OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
 	public void setHomesList(List<Home> homesList) {
 		this.homesList = homesList;
 	}

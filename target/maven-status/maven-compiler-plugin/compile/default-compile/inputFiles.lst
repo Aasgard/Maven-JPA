@@ -2,4 +2,8 @@ H:\windows\bureau\sirjpa\testjpa\src\main\java\domain\Heater.java
 H:\windows\bureau\sirjpa\testjpa\src\main\java\jpa\JpaTest.java
 H:\windows\bureau\sirjpa\testjpa\src\main\java\domain\Person.java
 H:\windows\bureau\sirjpa\testjpa\src\main\java\domain\Home.java
+H:\windows\bureau\sirjpa\testjpa\src\main\java\service\EntityManagerHelper.java
+H:\windows\bureau\sirjpa\testjpa\src\main\java\servlets\UserInfo.java
 H:\windows\bureau\sirjpa\testjpa\src\main\java\domain\ElectronicDevice.java
+H:\windows\bureau\sirjpa\testjpa\src\main\java\servlets\MyServlet.java
+H:\windows\bureau\sirjpa\testjpa\src\main\java\service\PersonService.java
