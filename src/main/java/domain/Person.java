@@ -78,7 +78,7 @@ public class Person {
 
 	@Override
     public String toString() {
-        return "@Person [ " + this.name + " , " + this.homesList.toString() + " ]";
+        return "@Person [ " + this.name + " , " + this.homesList.toString() + " , " + this.mail + " ]";
     }
 
 }

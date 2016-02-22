@@ -9,11 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import domain.Person;
 import service.PersonService;
 
-@WebServlet(name = "userinfo", urlPatterns = { "/UserInfo" })
-public class UserInfo extends HttpServlet {
+@WebServlet(name = "persons", urlPatterns = { "/Persons" })
+public class Persons extends HttpServlet {
 	
 	/**
 	 * 
@@ -23,17 +22,15 @@ public class UserInfo extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		
-		Person p = new Person(request.getParameter("name") +" "+ request.getParameter("firstname"), request.getParameter("mail") );
-		
-		System.out.println(p.toString());
 		PersonService ps = new PersonService();
-		
-		ps.addPerson(p);
 		
 		PrintWriter out = response.getWriter();
 
-		out.println("<HTML>\n<BODY>\n" + "<H1>Recapitulatif des informations</H1>\n" + "<UL>\n" + " <LI>Nom: "
-				+ request.getParameter("name") + "\n" + " <LI>Prenom: " + request.getParameter("firstname") + "\n"
-				+ " <LI>Age: " + request.getParameter("mail") + "\n" + "</UL>\n" + "</BODY></HTML>");
+		out.println("<HTML>\n<BODY>\n" + "<H1>Tous les utilisateurs</H1>\n" + ps.getPersons() + "</BODY></HTML>");
 	}
+	
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
+	}
+
 }

@@ -3,15 +3,17 @@ package service;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
-import domain.*;
+
+import domain.Person;
 
 public class PersonService {
 
-	private EntityManager manager;
+	private EntityManager manager = EntityManagerHelper.getEntityManager();
+	private EntityTransaction tx = manager.getTransaction();
 	
-	public PersonService(EntityManager em){
-		this.manager = em;
+	public PersonService(){
 	}
 	
 	public List<Person> getPersons(){
@@ -19,6 +21,12 @@ public class PersonService {
 		Query query = manager.createQuery(q);
 		
 		return query.getResultList();
+	}
+	
+	public void addPerson(Person p){
+		tx.begin();
+		manager.persist(p);
+		tx.commit();
 	}
 	
 }
